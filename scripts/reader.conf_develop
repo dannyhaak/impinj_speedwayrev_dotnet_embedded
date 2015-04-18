@@ -2,4 +2,4 @@
 password=developer
 
 [SoftwareFeatures]
-StartFTP=no
+StartFTP=yes
