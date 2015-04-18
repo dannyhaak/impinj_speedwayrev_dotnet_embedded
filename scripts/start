@@ -1,0 +1,1 @@
+#!/bin/shexport TERM=dumbwhile true ; doif [ -f /cust/app ] ; thenif [ -x /cust/app ] ; then/cust/app/usr/bin/logger -p user.notice \“Restarting custom application, count $count.” (( count = count + 1 ))fisleep 10 elseexit 0 fidone

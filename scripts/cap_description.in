@@ -1,0 +1,29 @@
+# CAP Description File
+# This file contains the settings used by the CAP generation tool
+# when a CAP partition upgrade file is produced.
+
+[Description]
+# Version is a 4 part number in decimal with each part limited to
+# 0-255. It is the version of the CAP to be generated.
+Version = 0.0.0.1
+
+# Valid Reader Hardware is a 3 part number in decimal representing
+# the reader model and major/minor revisions on which the CAP may be
+# loaded. Each field may be replaced by a '*' to mean 'all'.
+# Format = aaa.bbb.ccc
+# aaa - Model number
+# bbb - Major revision
+# ccc - Minor revision
+Valid Reader Hardware = 240-*-*
+Valid Reader Hardware = 250-*-*
+Valid Reader Hardware = 260-*-*
+Valid Reader Hardware = 270-*-*
+
+# File System Layout is an value used by the reader to determine how
+# the CAP partition should be loaded to flash. Currently the only
+# supported layout version is 10.
+File System Layout = 10
+
+# All the files in this directory will be loaded on the reader under /cust.
+# Specify this directory using an absolute path.
+Input Directory = /vagrant/cap
