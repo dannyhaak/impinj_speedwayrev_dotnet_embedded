@@ -38,23 +38,24 @@ fi
 mkdir -p /vagrant/output
 
 echo "++ Making a static executable"
-mkbundle --static --deps $2 *.dll -o /vagrant/tmp/app
+
+mkbundle --static --machine-config /etc/mono/4.5/machine.config --deps --config /vagrant/support/config $2 *.dll -o /vagrant/tmp/app
 
 echo "++ Strip the static executable"
 arm-linux-gnueabi-strip /vagrant/tmp/app
 
 echo "++ Create CAP package to install on Speedway"
 cp /vagrant/tmp/app /vagrant/cap/app
-cd /vagrant/scripts
-cp start /vagrant/cap/start
+cp /vagrant/includes/* /vagrant/cap
 
 # create develop package, which enables shell access and FTP
-cp reader.conf_develop /vagrant/cap/sys/reader.conf
-./cap_gen -d cap_description.in -o ../output/app_develop.upg
+cd /vagrant/scripts/
+cp /vagrant/support/reader.conf_develop /vagrant/cap/sys/reader.conf
+./cap_gen -d /vagrant/support/cap_description.in -o ../output/app_develop.upg
 
 # create release package
-cp reader.conf_release /vagrant/cap/sys/reader.conf
-./cap_gen -d cap_description.in -o ../output/app_release.upg
+cp /vagrant/support/reader.conf_release /vagrant/cap/sys/reader.conf
+./cap_gen -d /vagrant/support/cap_description.in -o ../output/app_release.upg
 
 echo "++ Cleaning up"
 rm -rf /vagrant/cap

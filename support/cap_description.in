@@ -5,7 +5,7 @@
 [Description]
 # Version is a 4 part number in decimal with each part limited to
 # 0-255. It is the version of the CAP to be generated.
-Version = 0.0.0.1
+Version = 0.0.0.3
 
 # Valid Reader Hardware is a 3 part number in decimal representing
 # the reader model and major/minor revisions on which the CAP may be
